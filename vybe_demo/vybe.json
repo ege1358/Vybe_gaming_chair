@@ -1,0 +1,125 @@
+{
+	"name":"Vybe Gaming Chair",
+	"width":44.6,
+	"height":93,
+	"unit":"cm",
+	
+	"comm":{
+		"usbserial":{
+			"vid":483,
+			"pid": 5740,
+			"baud":230400,
+			"protocol":"vybe-protocol"
+		},
+		"audio":{}
+	},
+	
+	"actuatortypes":{
+		"voicecoil":{
+			"parameters":{
+				"intensity":{
+					"min":0,
+					"max":255
+				},
+				"frequency":{
+					"min":0,
+					"max":0
+				}
+			},
+			"responserate":null,
+			"power":null
+		},
+		"motor":{
+			"parameters":{
+				"intensity":{
+					"min":0,
+					"max":255
+				}
+			},
+			"responserate":null,
+			"power":null
+		}
+	},
+	
+	"actuators":{
+		"VC1":{
+			"actuatortype":"voicecoil",
+			"id":1,
+			"x":19.2,
+			"y":28.8
+		},
+		"VC2":{
+			"actuatortype":"voicecoil",
+			"id":2,
+			"x":25.4,
+			"y":28.8
+		},
+		"VC3":{
+			"actuatortype":"voicecoil",
+			"id":3,
+			"x":13,
+			"y":21
+		},
+		"VC4":{
+			"actuatortype":"voicecoil",
+			"id":4,
+			"x":19.2,
+			"y":21
+		},
+		"VC5":{
+			"actuatortype":"voicecoil",
+			"id":5,
+			"x":25.4,
+			"y":21
+		},
+		"VC6":{
+			"actuatortype":"voicecoil",
+			"id":6,
+			"x":31.6,
+			"y":21
+		},
+
+		"M1":{
+			"actuatortype":"motor",
+			"id":1,
+			"x":13.3,
+			"y":81.3
+		},
+		"M2":{
+			"actuatortype":"motor",
+			"id":2,
+			"x":31.3,
+			"y":81.3
+		},
+		"M3":{
+			"actuatortype":"motor",
+			"id":3,
+			"x":16.3,
+			"y":68.8
+		},
+		"M4":{
+			"actuatortype":"motor",
+			"id":4,
+			"x":28.3,
+			"y":68.8
+		},
+		"M5":{
+			"actuatortype":"motor",
+			"id":5,
+			"x":13.7,
+			"y":37.8
+		},
+		"M6":{
+			"actuatortype":"motor",
+			"id":6,
+			"x":30.9,
+			"y":37.8
+		}
+	}
+
+
+
+
+
+
+}
