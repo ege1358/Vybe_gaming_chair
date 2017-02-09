@@ -1,3 +1,5 @@
+#define INPUT_SIZE 7
+
 class Voicecoil {
   int num;
   int pin;
@@ -31,13 +33,16 @@ class Voicecoil {
     }
 } vc[6];
 
-String message, actuator;
+//String message,actuator;
+char *actuator;
 int number, value;
+char input[INPUT_SIZE+1];
 const int pwmPin[6] = {3,5,6,9,10,11};
 
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
+  input[INPUT_SIZE] = " ";
   for(int i = 0; i < 6; i++) {
     vc[i].setNumber((i+1));
     vc[i].setValue(0);
@@ -46,23 +51,30 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  /*if(Serial.available()) {
-    message = Serial.readStringUntil('\n');
+  if(Serial.available()) {
+    Serial.readBytesUntil('\n',input, INPUT_SIZE);
+    actuator = strtok(input, " ");
+    Serial.println(actuator);
+    number = atoi(strtok(NULL, " "));
+    Serial.println(number);
+    value = input[6];
+    Serial.println(value);
+    
+    
+    /*message = Serial.readBytesUntil('\n');
     actuator = message.substring(0,3);
-    message = message.substring(3);
-    number = message.substring(0, message.indexOf(" ")).toInt();
-    message = message.substring(message.indexOf(" "));
-    message.trim();
+    Serial.println(actuator);
+    number = message.substring(4,5).toInt();
+    Serial.println(number);
+    message = message.substring(6);
     value = message.toInt();
-  }*/
-  actuator = "VCL";
-  number = 1;
-  value = 255;
-  if(actuator == "VCL") {
+    Serial.println(value);*/
+  }
+  if(!strcmp(actuator, "VCL")) {
     vc[(number-1)].setValue(value);
     actuator = "";
   }
-  else if(actuator == "MTR") {
+  else if(!strcmp(actuator, "MTR")) {
     analogWrite(pwmPin[number-1], value);
   }
 
