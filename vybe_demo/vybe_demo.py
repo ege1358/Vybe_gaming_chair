@@ -36,8 +36,7 @@ ports = list(serial.tools.list_ports.comports())
 raise IOError("%s not detected."%(vybe_desc["name"])) '''
 for p in ports:
     if "usb" in p[0]:
-        vybe = serial.Serial(port = p[0], baudrate = 9600, writeTimeout = 0.05)
-        print vybe
+        vybe = serial.Serial(p[0], 9600)
 '''#Search for all connected Vybe devices
 connectedDevices = []
 for portcandidate in serial.tools.list_ports.comports():
