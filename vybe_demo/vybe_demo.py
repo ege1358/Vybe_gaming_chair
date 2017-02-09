@@ -16,9 +16,9 @@ posx = 0
 posy = 0
 posz = 0
 if len(argv) > 3:
-    posx = argv[4]
-    posy = argv[5]
-    posz = argv[6]
+    posx = float(argv[3])
+    posy = float(argv[4])
+    posz = float(argv[5])
 #####################################
 #
 # Detect and Connect to Vybe Device
@@ -36,7 +36,8 @@ ports = list(serial.tools.list_ports.comports())
 raise IOError("%s not detected."%(vybe_desc["name"])) '''
 for p in ports:
     if "usb" in p[0]:
-        vybe = serial.Serial(p[0], 9600)
+        vybe= None
+vybe = serial.Serial(p[0], 9600)
 '''#Search for all connected Vybe devices
 connectedDevices = []
 for portcandidate in serial.tools.list_ports.comports():
